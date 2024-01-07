@@ -101,7 +101,7 @@ let span = $(".close").eq(0);
 
 // When the user refreshes, display the modal
 $(document).ready(function () {
-    if (performance.navigation.type === 1) {
+    if (!gameStarted) {
         $("#my-modal").css("display", "block");
     }
 });
