@@ -101,7 +101,7 @@ let span = $(".close").eq(0);
 
 // When the user refreshes, display the modal
 $(document).ready(function () {
-    if (performance.getEntriesByType("navigation")[0].type === "reload") {
+    if (performance.navigation.type === 1) {
         $("#my-modal").css("display", "block");
     }
 });
