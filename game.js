@@ -1,6 +1,7 @@
-// Get ready to watch, remember, repeat! The Simon game is the exciting electronic game of lights and sounds in which players must repeat random sequences of lights by pressing the colored pads in the correct order.It's fast-paced play, with lights and sounds that can challenge you.
+// Get ready to watch, remember, and repeat! The Simon game is the exciting electronic game of lights and sounds in which players must repeat random sequences of lights by pressing the colored pads in the correct order.It's fast-paced play, with lights and sounds that can challenge you.
 
 let buttonColors = ["red", "blue", "green", "yellow"];
+
 let gamePattern = [];
 let userClickedPattern = [];
 
@@ -72,6 +73,24 @@ function checkAnswer(currentLevel) {
         }
 
     } else {
-        console.log("wrong");
+        $("#level-title").text("Game Over, Press Any Key to Restart").css("color", "red");
+
+        $("body").addClass("game-over");
+        setTimeout(function () {
+            $("body").removeClass("game-over");
+        }, 200);
+
+        playSound("wrong");
+
+        startOver();
     }
+}
+
+function startOver() {
+    $("#level-title").css("color", "#FEF2BF");
+
+    gameStarted = false;
+    level = 0;
+
+    gamePattern = [];
 }
