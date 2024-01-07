@@ -1,5 +1,3 @@
-// Get ready to watch, remember, and repeat! The Simon game is the exciting electronic game of lights and sounds in which players must repeat random sequences of lights by pressing the colored pads in the correct order.It's fast-paced play, with lights and sounds that can challenge you.
-
 let buttonColors = ["red", "blue", "green", "yellow"];
 
 let gamePattern = [];
@@ -94,3 +92,27 @@ function startOver() {
 
     gamePattern = [];
 }
+
+// Get the modal
+let modal = $("#my-modal");
+
+// Get the <span> element that closes the modal
+let span = $(".close").eq(0);
+
+// When the user refreshes, display the modal
+if (performance.getEntriesByType("navigation")[0].type === "reload") {
+    modal.css("display", "block");
+}
+
+// When the user clicks on <span> (x), close the modal
+span.on("click", function () {
+    modal.css("display", "none");
+});
+
+// When the user clicks anywhere outside of the modal, close it
+$(window).on("click", function (event) {
+    if (event.target == modal[0]) {
+        modal.css("display", "none");
+    }
+});
+

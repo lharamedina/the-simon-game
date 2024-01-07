@@ -7,6 +7,7 @@
   <title>The Simon Game</title>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
 <body>
@@ -14,23 +15,50 @@
 
     <h1 id="level-title">Press Any Key to Start</h1>
 
-    <div class="btn-container">
-      <div lass="row">
+    <!-- The Modal -->
+    <div id="my-modal" class="modal">
 
-        <div type="button" id="green" class="btn green"></div>
+      <!-- Modal content -->
+      <div class="modal-content">
 
-        <div type="button" id="red" class="btn red"></div>
+        <div class="modal-header">
+          <h2>The Simon Game Instructions</h2>
+          <span class="close">&times;</span>
+        </div>
 
-      </div>
+        <div class="modal-body">
+          <p>Get ready to watch, remember, and repeat! The Simon Game is the exciting electronic game of lights and
+            sounds in which players must repeat random sequences of lights by pressing the colored pads in the correct
+            order.It's fast-paced play, with lights and sounds that can challenge you.</p>
+        </div>
 
-      <div class="row">
-
-        <div type="button" id="yellow" class="btn yellow"></div>
-
-        <div type="button" id="blue" class="btn blue"></div>
+        <div class="modal-footer">
+          <a href="https://github.com/lharamedina/the-simon-game" target="_blank"
+            class="text-muted text-decoration-none">
+            <i class="fa fa-github github" style="font-size:36px;color:#223B4F"></i></a>
+        </div>
 
       </div>
     </div>
+  </div>
+
+  <div class="btn-container">
+    <div lass="row">
+
+      <div type="button" id="green" class="btn green"></div>
+
+      <div type="button" id="red" class="btn red"></div>
+
+    </div>
+
+    <div class="row">
+
+      <div type="button" id="yellow" class="btn yellow"></div>
+
+      <div type="button" id="blue" class="btn blue"></div>
+
+    </div>
+  </div>
   </div>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
