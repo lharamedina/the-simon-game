@@ -10,7 +10,7 @@ body {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
   margin: 60px;
-  /* Check spacing again */
+  align-text: center;
   color: #FEF2BF;
 }
 
