@@ -113,7 +113,7 @@ body {
 
 /* The Close Button */
 .close {
-  font-size: 28px;
+  font-size: 1.5rem;
   font-weight: bold;
   cursor: pointer;
 }

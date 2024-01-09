@@ -6,7 +6,6 @@ let userClickedPattern = [];
 let gameStarted = false;
 let level = 0;
 
-// add keypress event listener
 $(document).keypress(function () {
     if (!gameStarted) {
         nextSequence();
@@ -20,16 +19,18 @@ $(document).keypress(function () {
 
 // add click event listener
 $(".btn").click(function () {
-    let userChosenColor = this.id;
-    userClickedPattern.push(userChosenColor);
+    if (gameStarted) {
+        let userChosenColor = this.id;
+        userClickedPattern.push(userChosenColor);
 
-    // pressed button animation
-    animatePress(userChosenColor);
+        // pressed button animation
+        animatePress(userChosenColor);
 
-    // button sound
-    playSound(userChosenColor);
+        // button sound
+        playSound(userChosenColor);
 
-    checkAnswer(userClickedPattern.length - 1);
+        checkAnswer(userClickedPattern.length - 1);
+    }
 });
 
 function nextSequence() {
@@ -50,17 +51,6 @@ function nextSequence() {
     playSound(randomChosenColor);
 }
 
-function playSound(soundName) {
-    new Audio("assets/sounds/" + soundName + ".mp3").play();
-}
-
-function animatePress(pressedBtn) {
-    let currentColor = $("#" + pressedBtn).addClass("pressed");
-    setTimeout(function () {
-        currentColor.removeClass("pressed");
-    }, 100);
-}
-
 function checkAnswer(currentLevel) {
     if (userClickedPattern[currentLevel] === gamePattern[currentLevel]) {
 
@@ -71,7 +61,7 @@ function checkAnswer(currentLevel) {
         }
 
     } else {
-        $("#level-title").text("Game Over, Press Any Key to Restart").css("color", "red");
+        $("#level-title").text("Game Over, Click Anywhere to Restart").css("color", "red");
 
         $("body").addClass("game-over");
         setTimeout(function () {
@@ -93,24 +83,37 @@ function startOver() {
     gamePattern = [];
 }
 
+function playSound(soundName) {
+    new Audio("assets/sounds/" + soundName + ".mp3").play();
+}
+
+function animatePress(pressedBtn) {
+    let currentColor = $("#" + pressedBtn).addClass("pressed");
+    setTimeout(function () {
+        currentColor.removeClass("pressed");
+    }, 100);
+}
+
+// Modal Logic
+
 // Get the modal
 let modal = $("#my-modal");
 
 // Get the <span> element that closes the modal
 let span = $(".close").eq(0);
 
-// When the user refreshes, display the modal
+// When game is not started, display modal
 if (!gameStarted) {
-    $("#my-modal").css("display", "block");
+    modal.css("display", "block");
 }
 
 // When the user clicks on <span> (x), close the modal
-span.on("click", function () {
+span.click(function () {
     modal.css("display", "none");
 });
 
 // When the user clicks anywhere outside of the modal, close it
-$(window).on("click", function (event) {
+$(window).click(function (event) {
     if (event.target == modal[0]) {
         modal.css("display", "none");
     }
