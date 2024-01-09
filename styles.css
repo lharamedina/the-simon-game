@@ -10,7 +10,7 @@ body {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
   margin: 60px;
-  /* Check spacing again */
+  align-text: center;
   color: #FEF2BF;
 }
 
@@ -66,7 +66,7 @@ body {
   top: 0;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: auto;
   background-color: #02020240;
   font-family: 'Press Start 2P', cursive;
   color: #223B4F;

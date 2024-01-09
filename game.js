@@ -100,11 +100,9 @@ let modal = $("#my-modal");
 let span = $(".close").eq(0);
 
 // When the user refreshes, display the modal
-$(document).ready(function () {
-    if (performance.getEntriesByType("navigation")[0].type === "reload") {
-        $("#my-modal").css("display", "block");
-    }
-});
+if (!gameStarted) {
+    $("#my-modal").css("display", "block");
+}
 
 // When the user clicks on <span> (x), close the modal
 span.on("click", function () {
@@ -117,4 +115,3 @@ $(window).on("click", function (event) {
         modal.css("display", "none");
     }
 });
-
