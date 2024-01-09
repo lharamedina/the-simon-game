@@ -4,13 +4,12 @@ body {
   background-color: #223B4F;
 }
 
-#main-container {}
+/* #main-container {} */
 
 #level-title {
   font-family: 'Press Start 2P', cursive;
   font-size: 3rem;
   margin: 60px;
-  align-text: center;
   color: #FEF2BF;
 }
 
