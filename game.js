@@ -6,12 +6,10 @@ let userClickedPattern = [];
 let gameStarted = false;
 let level = 0;
 
-$(document).keypress(function () {
+$("#main-container").click(function () {
     if (!gameStarted) {
+        $("#level-title").css("color", "#FEF2BF");
         nextSequence();
-
-        // level
-        $("#level-title").text("Level " + level);
 
         gameStarted = true;
     }
@@ -70,13 +68,14 @@ function checkAnswer(currentLevel) {
 
         playSound("wrong");
 
-        startOver();
+        setTimeout(function () {
+            startOver();
+        }, 1);
+
     }
 }
 
 function startOver() {
-    $("#level-title").css("color", "#FEF2BF");
-
     gameStarted = false;
     level = 0;
 
